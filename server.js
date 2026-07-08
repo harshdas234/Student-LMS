@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
-const connectDB = require('./backend/config/db');
+const connectDB = require('./config/db');
 
 // Load env vars
 dotenv.config();
@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(cors());
 
 // Mount routers
-app.use('/api/auth', require('./backend/routes/authRoutes'));
-app.use('/api/courses', require('./backend/routes/courseRoutes'));
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/courses', require('./routes/courseRoutes'));
 
 // Serve static assets in production (internship level setup)
 if (process.env.NODE_ENV === 'production') {
